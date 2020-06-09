@@ -21,7 +21,7 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  res.render('about');
+  res.render('about', {layout: 'dark'});
 });
 
 app.get('/contact', (req, res) => {
