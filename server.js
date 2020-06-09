@@ -12,7 +12,15 @@ app.use((req, res, next) => {
 
 app.use(express.static(path.join(__dirname, '/public')));
 
+app.use('/user',(req, res) => {
+  res.send('You have to be logged to see this page!');
+});
+
 app.get('/', (req, res) => {
+  res.show('index.html');
+});
+
+app.get('/home', (req, res) => {
   res.show('index.html');
 });
 
@@ -33,7 +41,7 @@ app.get('/history', (req, res) => {
 });
 
 app.use((req, res) => {
-  res.status(404).send('404 not found...');
+  res.status(404).show('404.html');
 });
 
 app.listen(8000, () => {
